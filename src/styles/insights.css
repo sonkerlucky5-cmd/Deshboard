@@ -1,0 +1,92 @@
+.insights-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.insight-card {
+  background: var(--bg-surface);
+  backdrop-filter: var(--backdrop);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--primary-gradient);
+}
+
+.insight-card.danger::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+.insight-card.success::before { background: linear-gradient(90deg, #10b981, #34d399); }
+.insight-card.warning::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.insight-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.insight-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.insight-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+  box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.insight-icon.danger { color: var(--danger); background: rgba(244, 63, 94, 0.15); box-shadow: inset 0 0 0 1px rgba(244, 63, 94, 0.2); }
+.insight-icon.success { color: var(--success); background: rgba(16, 185, 129, 0.15); box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.2); }
+.insight-icon.warning { color: var(--warning); background: rgba(245, 158, 11, 0.15); box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.2); }
+
+.insight-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.insight-content {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.insight-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: auto;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
